@@ -26,7 +26,7 @@ jobs:
 ## Input parameters
 
 Input parameter | Description | Required 
---- | --- | --- | ---
+--- | --- | --- 
 host | FTP server name | Yes 
 user | FTP username | Yes 
 password | FTP password | Yes 
