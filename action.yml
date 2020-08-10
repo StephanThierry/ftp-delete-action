@@ -1,4 +1,4 @@
-name: 'ftp-action'
+name: 'ftp-delete-action'
 author: 'Stephan Thierry <stephan@protek.dk>'
 description: 'Automate deleting files via FTP using this GitHub action.'
 inputs:
