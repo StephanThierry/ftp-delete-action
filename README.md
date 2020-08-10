@@ -37,4 +37,4 @@ host | FTP server name | Yes | ftp.domain.com
 user | FTP username | Yes | ftpUser
 password | FTP password | Yes | secureFtpPassword
 remoteFiles | Files to delete seperated by ";" | Yes | `precache-manifest.*.js;logs/*.log`
-workingDir | Working directory for   | No, default = / | `/public_html`
+workingDir | Working directory  | No, default = / | `/public_html`
