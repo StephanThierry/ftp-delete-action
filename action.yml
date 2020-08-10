@@ -1,0 +1,27 @@
+name: 'ftp-action'
+author: 'Stephan Thierry <stephan@protek.dk>'
+description: 'Automate deleting files via FTP using this GitHub action.'
+inputs:
+  host:
+    description: 'FTP host'
+    required: true
+  user:
+    description: 'FTP user'
+    required: true
+  password:
+    description: 'FTP password'
+    required: true
+  remoteFiles:
+    description: 'Remote files seperated by ; (wildcards accepted)'
+    required: true
+    default: ''
+  workingDir:
+    description: 'Working directory'
+    required: false
+    default: '/'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: 'orange'
+  icon: 'delete'

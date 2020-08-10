@@ -1,7 +1,7 @@
 # ftp-delete-action
-Automate deleting files on your ftp site using this GitHub action.
+Automate deleting files on your ftp server using this GitHub action.
 
-This repo is based on https://github.com/sebastianpopp/ftp-action which is used to automate the ftp copy process.  
+This action is inspired by https://github.com/sebastianpopp/ftp-action which is used to automate the ftp copy process.  
 
 ## Example usage
 
@@ -10,25 +10,31 @@ name: Deploy via ftp
 on: push
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Clean ReactJS precache-manifest 
+    - name: Checkout repo 
+      uses: actions/checkout@v2
+      
+    - name: Clean ReactJS precache-manifest and logs
       uses: StephanThierry/ftp-action@releases/v1
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        remoteFile: "public_html/precache-manifest.*.js"
+        remoteFiles: "precache-manifest.*.js;logs/*.log"
+        workingDir: "/public_html"
+
+    ... THE REST OF YOUR DEPLOYMENT ...  
+
 ```
 
 ## Input parameters
 
-Input parameter | Description | Required 
---- | --- | --- 
-host | FTP server name | Yes 
-user | FTP username | Yes 
-password | FTP password | Yes 
-remoteFile | The files | Yes
-forceSsl | Force SSL encryption | No, default = false
+Input parameter | Description | Required | Example
+--- | --- | --- | ---
+host | FTP server name | Yes | ftp.domain.com
+user | FTP username | Yes | ftpUser
+password | FTP password | Yes | secureFtpPassword
+remoteFiles | Files to delete seperated by ";" | Yes | precache-manifest.*.js;logs/*.log
+workingDir | Working directory for   | No, default = / | /public_html
