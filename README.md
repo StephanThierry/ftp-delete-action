@@ -45,5 +45,5 @@ host | FTP server name | Yes | ftp.domain.com
 user | FTP username | Yes | ftpUser
 password | FTP password | Yes | secureFtpPassword
 remoteFiles | Files to delete seperated by ";" | Yes | `precache-manifest.*.js;logs/*.log`
-workingDir | Working directory  | No, default = / | `/public_html`
-ignoreSSL | Ignore invalid TLS/SSL certificate (1=ignore)  | Default = 0 | 1
+workingDir | Working directory  | No, default=/ | `/public_html`
+ignoreSSL | Ignore invalid TLS/SSL certificate (1=ignore)  | No, Default=0 | 1
