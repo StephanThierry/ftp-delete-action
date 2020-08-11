@@ -26,6 +26,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         remoteFiles: "precache-manifest.*.js;logs/*.log"
         workingDir: "/public_html"
+        ignoreSSL: "1"
 
 #   ... THE REST OF YOUR DEPLOYMENT ...  
 
