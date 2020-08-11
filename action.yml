@@ -23,7 +23,7 @@ inputs:
     description: 'Ignore invalid TLS/SSL certificate (1=ignoreSSL)'
     required: false
     default: '0'
-    runs:
+runs:
   using: 'docker'
   image: 'Dockerfile'
 branding:
