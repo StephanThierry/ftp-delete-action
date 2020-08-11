@@ -19,7 +19,11 @@ inputs:
     description: 'Working directory'
     required: false
     default: '/'
-runs:
+  ignoreSSL:
+    description: 'Ignore invalid TLS/SSL certificate (1=ignoreSSL)'
+    required: false
+    default: '0'
+    runs:
   using: 'docker'
   image: 'Dockerfile'
 branding:

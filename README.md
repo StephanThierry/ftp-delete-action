@@ -16,6 +16,8 @@ jobs:
     - name: Checkout repo 
       uses: actions/checkout@v2
       
+#   ... INSTALL / RESTORE / BUILD ...  
+
     - name: Clean ReactJS precache-manifest and logs
       uses: StephanThierry/ftp-action@releases/v1
       with:
@@ -25,7 +27,7 @@ jobs:
         remoteFiles: "precache-manifest.*.js;logs/*.log"
         workingDir: "/public_html"
 
-    ... THE REST OF YOUR DEPLOYMENT ...  
+#   ... THE REST OF YOUR DEPLOYMENT ...  
 
 ```
 
@@ -38,3 +40,4 @@ user | FTP username | Yes | ftpUser
 password | FTP password | Yes | secureFtpPassword
 remoteFiles | Files to delete seperated by ";" | Yes | `precache-manifest.*.js;logs/*.log`
 workingDir | Working directory  | No, default = / | `/public_html`
+ignoreSSL | Ignore invalid TLS/SSL certificate (1=ignore)  | Default = 0 | 1
