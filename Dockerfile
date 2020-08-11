@@ -4,4 +4,4 @@ RUN apk --no-cache add lftp
 
 COPY deleteaction.sh /deleteaction.sh
 
-ENTRYPOINT ["/deleteaction.sh"]
+ENTRYPOINT ["sh", "/deleteaction.sh"]
