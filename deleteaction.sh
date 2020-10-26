@@ -11,15 +11,20 @@ fi
 
 echo -e "user $INPUT_USER \"$INPUT_PASSWORD\"" >> rmcmd
 echo -e "cd \"$INPUT_WORKINGDIR\"" >> rmcmd
-for file in $files
-do
-    echo -e "mrm \"$file\";\n" >> rmcmd
-done
 
-for dir in $dirs
-do
-    echo -e "rm -r \"$dir\";\n" >> rmcmd
-done
+if [-n "$INPUT_REMOTEFILES"]; then
+  for file in $files
+    do
+        echo -e "mrm \"$file\";\n" >> rmcmd
+    done
+fi
+
+if [-n "$INPUT_REMOTEDIRECTORIES"]; then
+    for dir in $dirs
+    do
+        echo -e "rm -r \"$dir\";\n" >> rmcmd
+    done
+fi 
 
 echo -e "quit;\n" >> rmcmd
 
