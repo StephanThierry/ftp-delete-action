@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash -l
 
 files=$(echo $INPUT_REMOTEFILES | tr ";" "\n")
 dirs=$(echo $INPUT_REMOTEDIRECTORIES | tr ";" "\n")
