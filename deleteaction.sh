@@ -15,14 +15,14 @@ echo -e "cd \"$INPUT_WORKINGDIR\"" >> rmcmd
 if [ -n "$INPUT_REMOTEFILES" ]; then
   for file in $files
     do
-        echo -e "mrm \"$file\";\n" >> rmcmd
+        echo -e "mrm -f \"$file\";\n" >> rmcmd
     done
 fi
 
 if [ -n "$INPUT_REMOTEDIRECTORIES" ]; then
     for dir in $dirs
     do
-        echo -e "rm -r \"$dir\";\n" >> rmcmd
+        echo -e "rm -f -r \"$dir\";\n" >> rmcmd
     done
 fi 
 
