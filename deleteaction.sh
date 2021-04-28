@@ -1,7 +1,9 @@
 #!/bin/bash -l
+files=`echo $INPUT_REMOTEFILES | sed 's/ *$//g'`
+dirs=`echo $INPUT_REMOTEDIRECTORIES | sed 's/ *$//g'`
 
-files=$(echo $INPUT_REMOTEFILES | tr ";" "\n")
-dirs=$(echo $INPUT_REMOTEDIRECTORIES | tr ";" "\n")
+files=$(echo $files | tr ";" "\n")
+dirs=$(echo $dirs | tr ";" "\n")
 
 echo "" > rmcmd
 if [ "$INPUT_IGNORESSL" -eq "1" ]
