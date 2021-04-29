@@ -1,9 +1,9 @@
 #!/bin/bash -l
-files=`echo $INPUT_REMOTEFILES | sed 's/ *$//g'`
-dirs=`echo $INPUT_REMOTEDIRECTORIES | sed 's/ *$//g'`
+fileString=`echo $INPUT_REMOTEFILES | sed 's/ *$//g'`
+dirString=`echo $INPUT_REMOTEDIRECTORIES | sed 's/ *$//g'`
 
-files=$(echo $files | tr ";" "\n")
-dirs=$(echo $dirs | tr ";" "\n")
+files=$(echo $fileString | tr ";" "\n")
+dirs=$(echo $dirString | tr ";" "\n")
 
 echo "" > rmcmd
 if [ "$INPUT_IGNORESSL" -eq "1" ]
@@ -14,22 +14,25 @@ fi
 echo -e "user $INPUT_USER \"$INPUT_PASSWORD\"" >> rmcmd
 echo -e "cd \"$INPUT_WORKINGDIR\"" >> rmcmd
 
-if [ -n "$INPUT_REMOTEFILES" ]; then
+
+echo "fileString $fileString"
+if [ -n "$fileString" ]; then
   for file in $files
     do
         echo -e "mrm -f \"$file\" 2>/dev/null; \n" >> rmcmd
+        echo -e "mrm -f \"$file\" 2>/dev/null; \n"
     done
 fi
 
-if [ -n "$INPUT_REMOTEDIRECTORIES" ]; then
+echo "dirString $dirString"
+if [ -n "$dirString" ]; then
     for dir in $dirs
     do
         echo -e "rm -f -r \"$dir\" 2>/dev/null; \n" >> rmcmd
+        echo -e "rm -f -r \"$dir\" 2>/dev/null; \n" 
     done
 fi 
 
 echo -e "quit;\n" >> rmcmd
-
-echo $rmcmd
 
 lftp  ftp://$INPUT_HOST < rmcmd
