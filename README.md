@@ -24,12 +24,13 @@ jobs:
 #   ... INSTALL / RESTORE / BUILD ...  
 
     - name: Clean ReactJS precache-manifest and logs
-      uses: StephanThierry/ftp-delete-action@releases/v1
+      uses: StephanThierry/ftp-delete-action@v1
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         remoteFiles: "precache-manifest.*.js;logs/*.log"
+        remoteDirectories: "/App_Data/TEMP"
         workingDir: "/public_html"
         ignoreSSL: "1"
 
@@ -45,5 +46,6 @@ host | FTP server name | Yes | ftp.domain.com
 user | FTP username | Yes | ftpUser
 password | FTP password | Yes | secureFtpPassword
 remoteFiles | Files to delete seperated by ";" | Yes | `precache-manifest.*.js;logs/*.log`
+remoteDirectories | Directories to delete seperated by ";" | No | `/App_Data/TEMP`
 workingDir | Working directory (Use "." if you want the server default and not "/") | No, default=/ | `/public_html`
 ignoreSSL | Ignore invalid TLS/SSL certificate (1=ignore)  | No, default=0 | 1
