@@ -30,6 +30,6 @@ fi
 
 echo -e "quit;\n" >> rmcmd
 
-echo rmcmd
+echo $rmcmd
 
 lftp  ftp://$INPUT_HOST < rmcmd
