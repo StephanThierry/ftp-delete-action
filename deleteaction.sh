@@ -19,8 +19,8 @@ if [ -n "$fileString" ]; then
   for file in $files
     do
         echo -e "mrm -f \"$file\" 2>/dev/null; \n" > cmd
-        echo -e cmd
-        echo -e cmd >> rmcmd
+        echo -e $cmd
+        echo -e $cmd >> rmcmd
     done
 fi
 
@@ -29,8 +29,8 @@ if [ -n "$dirString" ]; then
     for dir in $dirs
     do
         echo -e "rm -f -r \"$dir\" 2>/dev/null; \n" > cmd
-        echo -e cmd
-        echo -e cmd >> rmcmd
+        echo -e $cmd
+        echo -e $cmd >> rmcmd
     done
 fi 
 
