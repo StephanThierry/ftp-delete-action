@@ -19,7 +19,7 @@ if [ -n "$fileString" ]; then
   for file in $files
     do
         echo -e "mrm -f \"$file\" 2>/dev/null; \n" >> rmcmd
-        echo -e "mrm -f \"$file\" 2>/dev/null; \n" 
+        echo -e "mrm -f \"$file\" 2>/dev/null; \n"
     done
 fi
 
@@ -27,10 +27,10 @@ if [ -n "$dirString" ]; then
     for dir in $dirs
     do
         echo -e "rm -f -r \"$dir\" 2>/dev/null; \n" >> rmcmd
-        echo -e "rm -f -r \"$dir\" 2>/dev/null; \n" 
+        echo -e "rm -f -r \"$dir\" 2>/dev/null; \n"
     done
-fi 
+fi
 
 echo -e "quit;\n" >> rmcmd
 
-lftp  ftp://$INPUT_HOST < rmcmd
+lftp  ftp://$INPUT_HOST $INPUT_OPTIONS < rmcmd
