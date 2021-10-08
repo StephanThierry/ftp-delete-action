@@ -16,9 +16,9 @@ inputs:
     required: true
     default: ''
   remoteDirectories:
-    description: 'Remote directories separated by ";" (wildcards accepted)'
+    description: 'Directories to delete seperated by ";"'
     required: false
-    default: ''
+    default: ''    
   workingDir:
     description: 'Working directory'
     required: false
@@ -27,6 +27,10 @@ inputs:
     description: 'Ignore invalid TLS/SSL certificate (1=ignoreSSL)'
     required: false
     default: '0'
+  options:
+    description: 'Additional command-line options for lftp'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
