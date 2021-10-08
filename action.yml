@@ -12,7 +12,7 @@ inputs:
     description: 'FTP password'
     required: true
   remoteFiles:
-    description: 'Remote files seperated by ; (wildcards accepted)'
+    description: 'Remote files separated by ; (wildcards accepted)'
     required: true
     default: ''
   remoteDirectories:
