@@ -33,4 +33,4 @@ fi
 
 echo -e "quit;\n" >> rmcmd
 
-lftp  ftp://$INPUT_HOST $INPUT_OPTIONS < rmcmd
+lftp  $INPUT_HOST $INPUT_OPTIONS < rmcmd
