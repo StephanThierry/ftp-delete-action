@@ -15,6 +15,10 @@ inputs:
     description: 'Remote files seperated by ; (wildcards accepted)'
     required: true
     default: ''
+  remoteDirectories:
+    description: 'Directories to delete seperated by ";"'
+    required: false
+    default: ''    
   workingDir:
     description: 'Working directory'
     required: false
