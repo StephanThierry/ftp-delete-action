@@ -23,7 +23,7 @@ jobs:
 #   ... INSTALL / RESTORE / BUILD ...  
 
     - name: Clean ReactJS precache-manifest and logs
-      uses: StephanThierry/ftp-delete-action@/v2.1
+      uses: StephanThierry/ftp-delete-action@v2.1
       with:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
